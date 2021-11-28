@@ -102,7 +102,7 @@ def find(root:Node, val:int):
         return find(root.left, val)
 
 
-def unit_test():
+def insertion_unit_test():
     my_avl = AVLTree()
     insertions = [10, 20, 30, 40, 50, 25]
     for i in insertions:
@@ -118,4 +118,4 @@ def unit_test():
     i = 100
     print(f"There is {i} : {find(my_avl.root, i)} ")
 
-unit_test()
+insertion_unit_test()
