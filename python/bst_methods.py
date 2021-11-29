@@ -33,6 +33,11 @@ def find_min(root:Optional[BSTNode])->Optional[BSTNode]:
         return root
     return find_min(root.left)
 
+def find_max(root:Optional[BSTNode])->Optional[BSTNode]:
+    if root is None or root.right is None:
+        return root
+    return find_max(root.right)
+
 def insert( root:Optional[BSTNode], 
             key:int, 
             further_enhancing_methods : Optional[Callable] = None, 
