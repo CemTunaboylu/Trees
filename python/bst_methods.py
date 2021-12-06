@@ -15,10 +15,10 @@ def get_class( kls:str )->Any:
     module = ".".join(parts[:-1])
     m = __import__( module )
     for comp in parts[1:]:
-        m = getattr(m, comp)            
+        m = getattr(m, comp)
     return m
 
-def find(root:Optional[BSTNode], val:int)->bool:   
+def find(root:Optional[BSTNode], val:int)->bool:
     if root is None:
         return False
     elif root.data == val:
@@ -38,10 +38,10 @@ def find_max(root:Optional[BSTNode])->Optional[BSTNode]:
         return root
     return find_max(root.right)
 
-def insert( root:Optional[BSTNode], 
-            key:int, 
-            further_enhancing_methods : Optional[Callable] = None, 
-            node_type : Optional[str] = None)->Optional[BSTNode]: 
+def insert( root:Optional[BSTNode],
+            key:int,
+            further_enhancing_methods : Optional[Callable] = None,
+            node_type : Optional[str] = None)->Optional[BSTNode]:
         if root is None:
             node = get_class(node_type)
             return node(key)
@@ -56,9 +56,9 @@ def insert( root:Optional[BSTNode],
         return root
 
 def delete( root:Optional[BSTNode],
-            key:int, 
-            further_enhancing_methods : Optional[Callable] = None, 
-            ) -> Optional[BSTNode]:             
+            key:int,
+            further_enhancing_methods : Optional[Callable] = None,
+            ) -> Optional[BSTNode]:
     if root is None:
         return root
     elif key < root.data:
@@ -87,11 +87,11 @@ def delete( root:Optional[BSTNode],
 
     return root
 
-        
+
 def pre_order(root:Optional[BSTNode]):
         if root is None:
             return
- 
+
         print("{0} ".format(root.data), end="")
         pre_order(root.left)
         pre_order(root.right)
@@ -99,7 +99,7 @@ def pre_order(root:Optional[BSTNode]):
 def in_order(root:Optional[BSTNode]):
         if root is None:
             return
- 
-        pre_order(root.left)
+
+        in_order(root.left)
         print("{0} ".format(root.data), end="")
-        pre_order(root.right)
+        in_order(root.right)
